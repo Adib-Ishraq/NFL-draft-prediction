@@ -28,3 +28,14 @@ metrics, position, and body measurements.
 Raw data isn't tracked in this repo — see `data/README.md` for how to get it.
 
 ## Structure
+
+## Setup
+```bash
+python -m venv venv
+source venv/bin/activate   # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+## Approach / notes
+- Baseline: Random Forest, 5-fold stratified CV, AUC ≈ 0.8115 (0.813 with a `BMI = Weight / Height²` feature).
+- Next steps: try LightGBM/XGBoost/CatBoost, better missing-value imputation (group-wise or KNN), target/frequency encoding for categoricals (including `School`), feature interactions.
